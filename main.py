@@ -9,22 +9,23 @@
 from imports import *
 import Felt as felt
 
+
 # ----------------------------------------------------
-pygame.init()
-# 初始化pygame
-bg_size = (640, 480)
-
-screen = pygame.display.set_mode(bg_size, RESIZABLE, 32)
-# 创建窗口
-pygame.display.set_caption("Deep")
-
-background = pygame.image.load('C:\Users\\11985\Desktop\PY_game\横版闯关\images\\bg.jpg').convert()
-
-clock = pygame.time.Clock()
 
 
 # ----------------------------------------------------
 def main():
+    pygame.init()
+    # 初始化pygame
+    bg_size = (640, 480)
+
+    screen = pygame.display.set_mode(bg_size, RESIZABLE, 32)
+    # 创建窗口
+    pygame.display.set_caption("Deep")
+
+    background = pygame.image.load('images\\bg.jpg').convert()
+
+    clock = pygame.time.Clock()
     running = True
 
     me = felt.Felt(bg_size)
@@ -32,7 +33,7 @@ def main():
     while running:
         for event in pygame.event.get():
             if event.type == QUIT:
-                exit()
+                sys.exit()
 
         key_press = pygame.key.get_pressed()
 
@@ -41,12 +42,11 @@ def main():
         if key_press[K_LEFT] or key_press[K_a]:
             me.moveLeft()
 
-    screen.blit(background, (0, 0))
-    screen.blit(me.image, me.rect)
+        screen.blit(background, (0, 0))
+        screen.blit(me.image, me.rect)
 
-    clock.tick(60)
-
-    pygame.display.update()
+        pygame.display.update()
+        clock.tick(60)
 
 
 # ----------------------------------------------------
