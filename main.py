@@ -9,27 +9,25 @@
 from imports import *
 import Felt as felt
 
-
 # ----------------------------------------------------
+pygame.init()
+# 初始化pygame
+bg_size = (640, 480)
+
+screen = pygame.display.set_mode(bg_size, RESIZABLE, 32)
+# 创建窗口
+pygame.display.set_caption("Deep")
+
+background = pygame.image.load('images\\bg.jpg').convert()
+
+clock = pygame.time.Clock()
+running = True
+
+me = felt.Felt(bg_size)
 
 
 # ----------------------------------------------------
 def main():
-    pygame.init()
-    # 初始化pygame
-    bg_size = (640, 480)
-
-    screen = pygame.display.set_mode(bg_size, RESIZABLE, 32)
-    # 创建窗口
-    pygame.display.set_caption("Deep")
-
-    background = pygame.image.load('images\\bg.jpg').convert()
-
-    clock = pygame.time.Clock()
-    running = True
-
-    me = felt.Felt(bg_size)
-
     while running:
         for event in pygame.event.get():
             if event.type == QUIT:
